@@ -31,7 +31,7 @@ public class Consultas {
         System.out.println("=== BÚSQUEDA DE ESCUADRONES IMPERIALES ===\n");
         
         System.out.println("Introduce el ID del escuadron que desea localizar:");
-        int filtro = sc.nextInt();
+        String filtro = sc.nextLine();
         
         List<EscuadronDTO> escuadronesFiltrados = buscarEscuadronesImperiales(filtro);
         
@@ -41,7 +41,7 @@ public class Consultas {
         
     }
     
-    public static List<EscuadronDTO> buscarEscuadronesImperiales(int idEscuadron){
+    public static List<EscuadronDTO> buscarEscuadronesImperiales(String idEscuadron){
         
         String sql = "SELECT * FROM escuadrones_imperiales WHERE idEscuadron = ?;";
         
@@ -50,7 +50,7 @@ public class Consultas {
         try (Connection conn = DriverManager.getConnection(URL, USER, PASS);
                 PreparedStatement pstmt = conn.prepareStatement(sql)){
             
-            pstmt.setInt(1, idEscuadron);
+            pstmt.setString(1, idEscuadron);
             
             try (ResultSet rs = pstmt.executeQuery()){
                 while(rs.next()){
@@ -59,7 +59,7 @@ public class Consultas {
                     String sector = rs.getString("sectorBase");
                     int cazas = rs.getInt("numeroCazas");
                     
-                    escuadronesBuscados.add(new EscuadronDTO(sector, nombre, sector, cazas));
+                    escuadronesBuscados.add(new EscuadronDTO(id, nombre, sector, cazas));
                 }
             }
             

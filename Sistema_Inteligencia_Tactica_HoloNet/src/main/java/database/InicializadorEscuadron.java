@@ -28,7 +28,7 @@ public class InicializadorEscuadron {
                 + "numeroCazas INT NOT NULL);";
         
         try (Connection conn = DriverManager.getConnection(URL, USER, PASS);
-                Statement stmt = conn.prepareStatement(sql)){
+                Statement stmt = conn.createStatement()){
             
             stmt.execute(sql);
             

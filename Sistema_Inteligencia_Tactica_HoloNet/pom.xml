@@ -8,7 +8,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>26</maven.compiler.release>
-        <exec.mainClass>database.InicializadorEscuadron</exec.mainClass>
+        <exec.mainClass>database.Consultas</exec.mainClass>
     </properties>
     <dependencies>
         <dependency>

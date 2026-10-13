@@ -22,7 +22,7 @@ public class RegistrarEscuadrones {
     
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String resp = "s";
+        String resp = new String();
         int escReg = 1;
         
         System.out.println("=== REGISTRO DE ESCUADRONES IMPERIALES ===\n");
